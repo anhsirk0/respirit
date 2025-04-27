@@ -1,0 +1,83 @@
+.main-max-w {
+  @apply max-w-7xl 2xl:max-w-[90vw];
+}
+
+#clips {
+  background-size: calc(var(--spacing) * 14) calc(var(--spacing) * 14);
+  background-image:
+    /* linear-gradient(to right, var(--color-base-content) 1px, transparent 1px), */ linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-base-content) 50%, transparent) 1px,
+    transparent 1px
+  );
+  width: calc(100% - calc(var(--spacing) * 8));
+  height: calc(100% - calc(var(--spacing) * 14));
+  @apply absolute top-14 -z-1;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-forwards {
+  animation-fill-mode: forwards;
+}
+
+.r-text-sm {
+  @apply text-xs md:text-sm 2xl:text-base;
+}
+
+.r-text {
+  @apply text-sm md:text-base 2xl:text-xl;
+}
+
+.r-text-lg {
+  @apply text-base md:text-lg 2xl:text-2xl;
+}
+
+.r-text-xl {
+  @apply text-xl md:text-2xl 2xl:text-3xl;
+}
+
+.r-title {
+  @apply text-base xl:text-xl;
+}
+
+.r-btn {
+  @apply btn-sm lg:btn-md;
+}
+
+.r-icon {
+  @apply size-4 lg:size-5 2xl:size-6;
+}
+
+.r-gap {
+  @apply gap-2 2xl:gap-4;
+}
+
+.text-40 {
+  @apply text-base-content/40;
+}
+
+.text-60 {
+  @apply text-base-content/60;
+}
+
+.text-70 {
+  @apply text-base-content/70;
+}
+
+.text-80 {
+  @apply text-base-content/80;
+}
+
+/* .blob { */
+/*   @apply absolute rounded-full filter blur-2xl mix-blend-multiply opacity-40 animate-blob; */
+/* } */
+
+/* .modal:not(dialog:not(.modal-open)) { */
+/*   @apply bg-base-100/70; */
+/* } */

@@ -1,0 +1,43 @@
+@utility border-main {
+  @apply border-base-content/10;
+}
+
+@utility transit {
+  @apply transition-all duration-300 ease-out;
+}
+
+@utility center {
+  @apply flex items-center justify-center;
+}
+
+@utility bg1 {
+  @apply bg-base-100 dark:bg-base-300;
+}
+@utility bg2 {
+  @apply bg-base-200 dark:bg-base-200;
+}
+@utility bg3 {
+  @apply bg-base-300 dark:bg-base-100;
+}
+
+@utility box-neutral {
+  @apply bg-neutral text-neutral-content;
+}
+@utility box-primary {
+  @apply bg-primary text-primary-content;
+}
+@utility box-secondary {
+  @apply bg-secondary text-secondary-content;
+}
+@utility box-accent {
+  @apply bg-accent text-accent-content;
+}
+@utility box-success {
+  @apply bg-success text-success-content;
+}
+@utility box-error {
+  @apply bg-error text-error-content;
+}
+@utility box-warning {
+  @apply bg-warning text-warning-content;
+}
