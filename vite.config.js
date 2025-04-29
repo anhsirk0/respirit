@@ -13,8 +13,8 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Panda notes",
-        short_name: "PandaNotes",
+        name: "Respirit",
+        short_name: "Respirit",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
