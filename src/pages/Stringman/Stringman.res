@@ -33,7 +33,7 @@ let make = () => {
     "input[name='query']"->Util.Dom.querySelectAndThen(Util.Dom.focus)
   }
 
-  <div className="flex flex-col md:flex-row size-full bg-base-100">
+  <Layout>
     <Navbar title="Stringman" />
     <div
       className="grid grid-cols-12 gap-8 p-4 size-full max-w-7xl mx-auto overflow-y-auto min-h-0 pb-8">
@@ -53,5 +53,5 @@ let make = () => {
       </div>
       {Shape.Stringman.ops->Array.map(op => <Item op value />)->React.array}
     </div>
-  </div>
+  </Layout>
 }

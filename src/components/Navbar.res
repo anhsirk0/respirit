@@ -11,11 +11,11 @@ let make = (~title, ~children=React.null) => {
       <Icon.palette className="size-6" />
     </label>
     <div className="grow" />
-    <div className="relative font-black">
+    <Link to=Link.home className="relative font-black">
       <p className="md:hidden text-3xl"> {title->React.string} </p>
       <p className="text-4xl absolute top-0 -left-6 hidden md:block -rotate-90 origin-top-left">
         {title->React.string}
       </p>
-    </div>
+    </Link>
   </div>
 }

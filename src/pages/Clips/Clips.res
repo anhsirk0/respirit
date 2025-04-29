@@ -70,7 +70,7 @@ let make = () => {
   let {clips, addClip} = Store.Clips.use()
   let onClick = _ => addClip(Shape.Clip.make())
 
-  <div className="flex flex-col md:flex-row size-full">
+  <Layout>
     <Navbar title="Clips">
       <button onClick className="btn btn-primary btn-ghost btn-square">
         <Icon.pencil className="size-6" />
@@ -88,5 +88,5 @@ let make = () => {
       ->Array.mapWithIndex((clip, idx) => <Clip clip idx editMode key={clip.id->Float.toString} />)
       ->React.array}
     </div>
-  </div>
+  </Layout>
 }
