@@ -10,22 +10,22 @@ export default defineConfig({
       include: ["**/*.res.mjs"],
     }),
     tailwindcss(),
-    VitePWA({
-      registerType: "autoUpdate",
-      manifest: {
-        name: "Respirit",
-        short_name: "Respirit",
-        start_url: "/",
-        display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#ffffff",
-        scope: "/",
-        icons: [{ src: "/logo.svg", type: "image/svg+xml", sizes: "any" }],
-      },
-      workbox: {
-        globPatterns: ["**/*.{js,css,html}"],
-      },
-    }),
+    // VitePWA({
+    //   registerType: "autoUpdate",
+    //   manifest: {
+    //     name: "Respirit",
+    //     short_name: "Respirit",
+    //     start_url: "/",
+    //     display: "standalone",
+    //     background_color: "#ffffff",
+    //     theme_color: "#ffffff",
+    //     scope: "/",
+    //     icons: [{ src: "/logo.svg", type: "image/svg+xml", sizes: "any" }],
+    //   },
+    //   workbox: {
+    //     globPatterns: ["**/*.{js,css,html}"],
+    //   },
+    // }),
   ],
   build: {
     rollupOptions: {
