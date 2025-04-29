@@ -22,6 +22,9 @@ export default defineConfig({
         scope: "/",
         icons: [{ src: "/logo.svg", type: "image/svg+xml", sizes: "any" }],
       },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html}"],
+      },
     }),
   ],
   build: {
