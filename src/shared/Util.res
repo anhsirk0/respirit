@@ -16,12 +16,14 @@ let toInitials = name =>
 
 module Str = {
   let isEmpty = str => str->String.length === 0
-  // let or = (str, str2) => str->isEmpty ? str2 : str
+  let or = (str, str2) => str->isEmpty ? str2 : str
   // let isSame = (str, str2) => str->String.toLowerCase == str2->String.toLowerCase
 }
 
 module Dom = {
+  @send external focus: Dom.element => unit = "focus"
   @send external setAttribute: (Dom.element, string, string) => unit = "setAttribute"
+
   let querySelectAndThen = (selector, action) => {
     switch ReactDOM.querySelector(selector) {
     | Some(el) => el->action

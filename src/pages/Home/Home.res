@@ -1,15 +1,20 @@
 @react.component
 let make = () => {
-  <div className="size-full flex flex-col gap-4 pt-[4rem]">
-    <div className="center flex-col size-full min-h-[50vh] xl:min-h-[60vh] gap-4 p-2">
-      <p
-        className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-medium font-serif text-primary text-center">
-        {"Respirit"->React.string}
-      </p>
-      <Link to=Link.clips className="btn btn-primary r-btn w-fit mt-2">
-        {"Clips"->React.string}
+  let className = "col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-4 flex gap-2 border border-main rounded-box cursor-pointer hover:bg-primary/5 active:bg-primary/10 active:scale-105 transit h-20 center font-black text-4xl"
+
+  <div className="flex flex-col md:flex-row size-full min-h-0">
+    <Navbar title="Respirit" />
+    <div
+      className="grid grid-cols-12 gap-8 p-4 size-full max-w-7xl mx-auto overflow-y-auto min-h-0 pb-8">
+      <div className="col-span-12 center flex-col">
+        <div className="text-7xl font-black text-primary mb-8"> {"Respirit"->React.string} </div>
+      </div>
+      <Link to=Link.clips className>
+        <p className="text-center text-accent"> {"Clips"->React.string} </p>
+      </Link>
+      <Link to=Link.stringman className>
+        <p className="text-center text-success"> {"Stringman"->React.string} </p>
       </Link>
     </div>
-    <div className="h-16 shrink-0" />
   </div>
 }

@@ -1,3 +1,69 @@
+module Clip = {
+  @react.component
+  let make = (~clip: Shape.Clip.t, ~idx, ~editMode) => {
+    let {updateClip, deleteClip} = Store.Clips.use()
+    let (isEditing, toggleEditing, _) = Hook.useToggle(~init=clip.content->Util.Str.isEmpty)
+    let (value, setValue) = React.useState(_ => clip.content)
+    let (isDebounced, setIsDebounced) = React.useState(_ => true)
+
+    let onChange = evt => {
+      setValue(_ => Util.Dom.targetValue(evt))
+      if isDebounced {
+        setIsDebounced(_ => false)
+        let _ = setTimeout(_ => setIsDebounced(_ => true), 800)
+      }
+    }
+
+    let onBlur = _ => toggleEditing()
+    let onDelete = _ => deleteClip(clip.id)
+    let onCopy = _ => {
+      if value->Util.Str.isEmpty {
+        Toast.error("No content to copy")
+      } else {
+        value->Util.Dom.copyText
+        Toast.success("Copied to clipboard")
+      }
+    }
+
+    React.useEffect(() => {
+      if value != clip.content && isDebounced {
+        updateClip({...clip, content: value, updatedAt: Date.now()})
+      }
+      None
+    }, [isDebounced])
+
+    <div className="w-full flex h-10 items-end">
+      <div className="flex gap-2 z-10 relative isolate pr-2">
+        <div className="h-2 w-full bg-base-100 absolute -bottom-2" />
+        <div
+          role="button"
+          onClick=onCopy
+          className="w-10 h-8 border border-base-content border-l-8 center font-bold z-10 cursor-pointer">
+          {(idx + 1)->Int.toString->React.string}
+        </div>
+        {editMode
+          ? <button onClick=onDelete className="btn btn-error btn-sm btn-square">
+              <Icon.trash className="size-4" />
+            </button>
+          : React.null}
+      </div>
+      {isEditing
+        ? <input
+            value
+            onChange
+            className="text-xl bg-base-100 size-full border-b border-base-content focus:border-b-accent focus:outline-none"
+            onBlur
+            autoFocus=true
+          />
+        : <div
+            onClick={_ => toggleEditing()}
+            className="h-full truncate grow border-b border-base-content/50">
+            <p className="text-2xl mt-1"> {value->React.string} </p>
+          </div>}
+    </div>
+  }
+}
+
 @react.component
 let make = () => {
   let (editMode, toggleEditMode, _) = Hook.useToggle()
@@ -5,8 +71,7 @@ let make = () => {
   let onClick = _ => addClip(Shape.Clip.make())
 
   <div className="flex flex-col md:flex-row size-full">
-    <div
-      className="w-full h-12 md:h-full md:w-16 box-primary p-4 flex flex-row-reverse md:flex-col md:justify-center items-center z-100">
+    <Navbar title="Clips">
       <button onClick className="btn btn-primary btn-ghost btn-square">
         <Icon.pencil className="size-6" />
       </button>
@@ -15,26 +80,9 @@ let make = () => {
         className={`btn btn-square btn-accent ${editMode ? "" : "btn-ghost"}`}>
         <Icon.scribble className="size-6" />
       </button>
-      <div className="dropdown dropdown-end md:dropdown-start">
-        <label ariaLabel="select-theme" tabIndex=0 className="btn btn-ghost btn-square btn-primary">
-          <Icon.palette className="size-6" />
-        </label>
-        <div
-          tabIndex=0
-          className="dropdown-content z-10 shadow box-secondary rounded-box menu [&>li>*:hover]:bg-base-100/20 mt-4 md:-mt-31 md:ml-16">
-          <div
-            className="flex flex-col gap-2 p-2 w-72 h-[90vh] md:h-[96vh] min-h-0 overflow-y-auto">
-            <ThemeList />
-          </div>
-        </div>
-      </div>
-      <div className="grow" />
-      <p className="md:mb-4 text-3xl xl:text-4xl font-black md:-rotate-90">
-        {"Clips"->React.string}
-      </p>
-    </div>
+    </Navbar>
     <div
-      className="bg1 rounded-box p-4 flex flex-col gap-4 grow min-h-0 overflow-y-auto relative isolate">
+      className="bg-base-100 rounded-box p-4 flex flex-col gap-4 grow min-h-0 overflow-y-auto relative isolate">
       <span id="clips" />
       {clips
       ->Array.mapWithIndex((clip, idx) => <Clip clip idx editMode key={clip.id->Float.toString} />)

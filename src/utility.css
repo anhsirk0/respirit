@@ -1,5 +1,5 @@
 @utility border-main {
-  @apply border-base-content/10;
+  @apply border-base-content/20;
 }
 
 @utility transit {
@@ -10,15 +10,15 @@
   @apply flex items-center justify-center;
 }
 
-@utility bg1 {
-  @apply bg-base-100 dark:bg-base-300;
-}
-@utility bg2 {
-  @apply bg-base-200 dark:bg-base-200;
-}
-@utility bg3 {
-  @apply bg-base-300 dark:bg-base-100;
-}
+/* @utility bg1 { */
+/*   @apply bg-base-100 dark:bg-base-300; */
+/* } */
+/* @utility bg2 { */
+/*   @apply bg-base-200 dark:bg-base-200; */
+/* } */
+/* @utility bg3 { */
+/*   @apply bg-base-300 dark:bg-base-100; */
+/* } */
 
 @utility box-neutral {
   @apply bg-neutral text-neutral-content;
