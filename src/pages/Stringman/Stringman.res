@@ -20,9 +20,7 @@ module Item = {
 
 @react.component
 let make = () => {
-  let (value, setValue) = React.useState(_ =>
-    "col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-4 flex gap-2 border border-main rounded-box cursor-pointer bg-base-100 hover:bg-primary/5 active:bg-primary/10 transit active:scale-105"
-  )
+  let (value, setValue) = React.useState(_ => "")
   let onChange = evt => {
     let target = ReactEvent.Form.target(evt)
     setValue(_ => target["value"])
