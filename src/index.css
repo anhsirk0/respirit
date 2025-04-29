@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@import "./utility";
-@import "./custom";
-
 @plugin "daisyui" {
   themes: all;
 }
+
+@import "./utility";
+@import "./custom";
 
 @layer base {
   @font-face {
