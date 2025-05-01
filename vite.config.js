@@ -11,7 +11,7 @@ export default defineConfig({
     }),
     tailwindcss(),
     VitePWA({
-      registerType: "autoUpdate",
+      // registerType: "autoUpdate",
       manifest: {
         name: "Respirit",
         short_name: "Respirit",
@@ -19,7 +19,7 @@ export default defineConfig({
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#ffffff",
-        scope: "/",
+        // scope: "/",
         icons: [{ src: "/logo.svg", type: "image/svg+xml", sizes: "any" }],
       },
     }),
