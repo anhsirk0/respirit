@@ -17,7 +17,7 @@ let make = () => {
       id="add-btn"
       ariaLabel="add-searcher-btn"
       onClick={_ => toggleOpen()}
-      className="btn btn-square btn-primary">
+      className="btn btn-square btn-ghost">
       <Icon.plus className="size-6" />
     </button>
     {isOpen
