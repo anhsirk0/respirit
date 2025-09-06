@@ -32,6 +32,7 @@ let make = () => {
 
   <Layout>
     <Navbar title="Searcher">
+      <AddSearcherButton />
       <button
         onClick={_ => toggleEditing()}
         className={`btn btn-square btn-accent ${isEditing ? "" : "btn-ghost"}`}>
@@ -71,7 +72,6 @@ let make = () => {
       </form>
       <div className="center px-4 2xl:py-4 join 2xl:max-w-7xl z-[5] w-full">
         <div className="grid grid-cols-12 gap-4 xl:gap-8 w-full"> {React.array(items)} </div>
-        <AddSearcherButton />
       </div>
     </div>
   </Layout>

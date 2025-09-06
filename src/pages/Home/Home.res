@@ -7,7 +7,9 @@ let make = () => {
     <div
       className="grid grid-cols-12 gap-8 p-4 h-full max-w-7xl mx-auto overflow-y-auto min-h-0 pb-8">
       <div className="col-span-12 center flex-col">
-        <div className="text-7xl font-black text-primary mb-8"> {"Respirit"->React.string} </div>
+        <div className="text-5xl md:text-7xl font-black text-primary mb-8">
+          {"Respirit"->React.string}
+        </div>
       </div>
       <Link to=Link.clips className>
         <p className="text-center text-accent"> {"Clips"->React.string} </p>

@@ -17,8 +17,8 @@ let make = () => {
       id="add-btn"
       ariaLabel="add-searcher-btn"
       onClick={_ => toggleOpen()}
-      className="fixed bottom-2 right-2 btn btn-ghost r-btn btn-circle">
-      <Icon.plus className="r-icon" />
+      className="btn btn-square btn-primary">
+      <Icon.plus className="size-6" />
     </button>
     {isOpen
       ? <Modal title="New Searcher" onClose=toggleOpen>
