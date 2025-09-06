@@ -1,3 +1,6 @@
+@val @scope("window")
+external openUrl: (string, string) => unit = "open"
+
 let toCapitalize = str =>
   str->String.charAt(0)->String.toUpperCase ++ str->String.sliceToEnd(~start=1)
 
@@ -14,6 +17,12 @@ let toInitials = name =>
   ->Array.map(String.toUpperCase)
   ->Array.join("")
 
+let searchLink = (url, text, ~target="_blank") => {
+  url
+  ->String.replace("<Q>", encodeURI(text))
+  ->openUrl(target)
+}
+
 module Str = {
   let isEmpty = str => str->String.length === 0
   let or = (str, str2) => str->isEmpty ? str2 : str
@@ -22,6 +31,7 @@ module Str = {
 
 module Dom = {
   @send external focus: Dom.element => unit = "focus"
+  @send external blur: Dom.element => unit = "blur"
   @send external setAttribute: (Dom.element, string, string) => unit = "setAttribute"
 
   let querySelectAndThen = (selector, action) => {

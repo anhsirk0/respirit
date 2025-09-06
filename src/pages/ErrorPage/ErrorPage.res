@@ -27,7 +27,7 @@ let make = () => {
         </h4>
         <Link
           to={Link.home} className="btn btn-primary w-fit mt-4 md:mt-8 self-center md:self-start">
-          <Icon.house className="resp-icon" />
+          <Icon.house className="r-icon" />
           {"Home"->React.string}
         </Link>
       </div>

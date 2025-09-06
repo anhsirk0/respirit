@@ -2,6 +2,7 @@ type t =
   | Home
   | Clips
   | Stringman
+  | Searcher
   | ErrorPage
 
 let useRoute: unit => t = () => {
@@ -11,6 +12,7 @@ let useRoute: unit => t = () => {
   | list{} => Home
   | list{"clips"} => Clips
   | list{"stringman"} => Stringman
+  | list{"searcher"} => Searcher
   | _ => ErrorPage
   }
 }

@@ -6,6 +6,7 @@ external toString: location' => string = "%identity"
 let home = new("/")
 let clips = new("/clips")
 let stringman = new("/stringman")
+let searcher = new("/searcher")
 
 let push: location' => unit = location => location->toString->RescriptReactRouter.push
 

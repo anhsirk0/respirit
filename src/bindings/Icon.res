@@ -6,6 +6,7 @@ type t = React.component<props>
 @module("@phosphor-icons/react") external medal: t = "Medal"
 @module("@phosphor-icons/react") external trash: t = "Trash"
 @module("@phosphor-icons/react") external x: t = "X"
+@module("@phosphor-icons/react") external magnifyingGlass: t = "MagnifyingGlass"
 
 // Arrows
 @module("@phosphor-icons/react") external arrowLeft: t = "ArrowLeft"

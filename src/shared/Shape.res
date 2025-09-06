@@ -90,3 +90,34 @@ module Stringman = {
     {title: "AltCaps Case", fn: toAltCaps},
   ]
 }
+
+module SearchEngine = {
+  type t = {
+    id: float,
+    title: string,
+    url: string,
+    icon: string,
+  }
+  let eq = (one, other) => one.id == other.id
+  let make = () => {id: Date.now(), title: "", url: "", icon: "New"}
+  let defaultEngines: array<t> = [
+    {
+      id: 0.,
+      title: "Duckduckgo",
+      url: "https://duckduckgo.com/?q=<Q>",
+      icon: `🦆`,
+    },
+    {
+      id: 1.,
+      title: "Startpage",
+      url: "https://www.startpage.com/sp/search?query=<Q>",
+      icon: `🪿`,
+    },
+    {
+      id: 2.,
+      title: "Youtube",
+      url: "https://www.youtube.com/results?search_query=<Q>",
+      icon: `YT`,
+    },
+  ]
+}

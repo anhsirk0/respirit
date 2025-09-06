@@ -12,6 +12,7 @@ let make = () => {
   | Home => <Home />
   | Clips => <Clips />
   | Stringman => <Stringman />
+  | Searcher => <Searcher />
   | ErrorPage => <ErrorPage />
   }
 }

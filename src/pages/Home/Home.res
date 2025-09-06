@@ -15,6 +15,9 @@ let make = () => {
       <Link to=Link.stringman className>
         <p className="text-center text-success"> {"Stringman"->React.string} </p>
       </Link>
+      <Link to=Link.searcher className>
+        <p className="text-center text-primary"> {"Searcher"->React.string} </p>
+      </Link>
     </div>
   </Layout>
 }
